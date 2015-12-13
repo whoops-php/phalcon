@@ -1,6 +1,5 @@
 {
     "name": "whoops/phalcon",
-    "version": "1.0.0",
     "description": "Whoops provider for Phalcon",
     "license": "MIT",
     "authors": [

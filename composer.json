@@ -9,6 +9,7 @@
             }
     ],
     "require": {
+        "filp/whoops": "@dev"
     },
     "autoload": {
         "psr-4": {

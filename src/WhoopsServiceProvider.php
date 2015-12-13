@@ -31,7 +31,6 @@ class WhoopsServiceProvider
         // There's only ever going to be one error page...right?
         $di->setShared('whoops.json_response_handler', function () {
             $jsonHandler = new JsonResponseHandler();
-            $jsonHandler->onlyForAjaxRequests(true);
             return $jsonHandler;
         });
 
@@ -69,7 +68,10 @@ class WhoopsServiceProvider
             $run = new Run();
             $run->pushHandler($di['whoops.pretty_page_handler']);
             $run->pushHandler($phalcon_info_handler);
-            $run->pushHandler($di['whoops.json_response_handler']);
+            if (\Whoops\isAjaxRequest()){
+                $run->pushHandler($di['whoops.json_response_handler']);
+            }
+
             return $run;
         });
 

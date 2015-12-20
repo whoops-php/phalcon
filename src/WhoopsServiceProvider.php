@@ -68,7 +68,7 @@ class WhoopsServiceProvider
             $run = new Run();
             $run->pushHandler($di['whoops.pretty_page_handler']);
             $run->pushHandler($phalcon_info_handler);
-            if (\Whoops\isAjaxRequest()){
+            if (\Whoops\Util\Misc::isAjaxRequest()){
                 $run->pushHandler($di['whoops.json_response_handler']);
             }
 
